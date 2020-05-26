@@ -3,7 +3,9 @@ package com.cxw.po;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.Data;
 
+@Data
 @TableName("account")
 public class Account {
 
