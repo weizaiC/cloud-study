@@ -19,31 +19,22 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <hutool.version>4.6.7</hutool.version>
         <fastjson.version>1.2.47</fastjson.version>
-        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
-        <spring-cloud.version>Hoxton SR4</spring-cloud.version>
+        <spring-boot.version>2.0.1.RELEASE</spring-boot.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <mysql>5.1.47</mysql>
-        <mybatis-plus.version>2.2.0</mybatis-plus.version>
-        <spring-cloud-alibaba>2.1.0.RELEASE</spring-cloud-alibaba>
+        <spring-cloud-alibaba>2.0.0.RELEASE</spring-cloud-alibaba>
     </properties>
 
-
     <modules>
-        <!--    <module>auth</module>
-            <module>center</module>
-            <module>common</module>
-            <module>gateway</module>
-            <module>webapps</module>
-            <module>monitor</module>
-            <module>sysadmin</module>
-            <module>demos</module>-->
         <module>account</module>
         <module>core</module>
+        <module>consumer</module>
+        <module>openapi</module>
     </modules>
-
 
     <dependencyManagement>
         <dependencies>
-            <!--支持Spring Boot 2.1.X-->
+            <!--支持Spring Boot 2.0.X-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -51,6 +42,16 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -58,17 +59,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql}</version>
-            </dependency>
 
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>cn.hutool</groupId>
@@ -76,12 +67,6 @@
                 <version>${hutool.version}</version>
             </dependency>
 
-            <!--Swagger2 - RESTful API文档-->
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>2.9.2</version>
-            </dependency>
 
 
             <!-- 阿里JSON解析器 -->
@@ -91,45 +76,19 @@
                 <version>${fastjson.version}</version>
             </dependency>
 
-            <!--自省和监控的集成功能-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-actuator</artifactId>
-            </dependency>
+
             <!--注册中心-->
-          <!--  <dependency>
+            <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
-                <version>2.1.1.RELEASE</version>
-            </dependency>-->
+                <version>2.0.0.RELEASE</version>
+            </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>2.2.1.RELEASE</version>
+                <version>2.0.0.RELEASE</version>
             </dependency>
 
-            <!--配置中心-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-                <version>2.2.1.RELEASE</version>
-            </dependency>
-
-            <!--熔断降级-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-            </dependency>
-            <!--日志跟踪-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-zipkin</artifactId>
-            </dependency>
-            <!--消息总线-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-            </dependency>
             <!--热加载-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -150,12 +109,7 @@
                 <artifactId>spring-boot-starter-test</artifactId>
                 <scope>test</scope>
             </dependency>
-            <!--test数据库-->
-            <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <scope>test</scope>
-            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -179,7 +133,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.3.0.RELEASE</version>
+                <version>2.0.4.RELEASE</version>
                 <executions>
                     <execution>
                         <goals>

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountApplication {
 
     public static void main(String[] args) {
-        System.setProperty("nacos.standalone", "true");
+      //  System.setProperty("nacos.standalone", "true");
         SpringApplication.run(AccountApplication.class);
     }
     @RestController
