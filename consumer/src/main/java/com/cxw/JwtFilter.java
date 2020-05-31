@@ -66,9 +66,10 @@ public class JwtFilter implements Filter {
         for (String url : urls) {
             if (pathMatcher.match(url, spath)) {
                 Object token = jwtHelper.validateTokenAndGetClaims(httpRequest);
-                HttpSession session = httpRequest.getSession();
-                session.setAttribute("loginName", ((Map) token).get("loginName"));          //将用户名放在session中
                 if (token != null) {
+                    HttpSession session = httpRequest.getSession();
+                    //将用户名放在session中
+                    session.setAttribute("loginName", ((Map) token).get("loginName"));
                     chain.doFilter(request, response);
                     return;
                 }else{
