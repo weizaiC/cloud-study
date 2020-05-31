@@ -71,11 +71,6 @@
             <artifactId>jjwt</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>commons-net</groupId>
-            <artifactId>commons-net</artifactId>
-            <version>3.3</version>
-        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
